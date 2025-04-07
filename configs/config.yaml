@@ -1,0 +1,67 @@
+random_seed: 48
+
+# Local path to your tokenizer model (unchanged if you use the same model)
+model_name: D:/documents/python codes/Thesis/github-code/ANeurIPS2024_SPV-MIA-main/ANeurIPS2024_SPV-MIA-main/deepseek-ai/deepseek-llm-7b-base
+
+
+# Local path to your fine-tuned model (merged LoRA model)
+target_model: ft_llms/checkpoints
+
+
+# Use the same model as reference if you didn’t train a separate one
+reference_model: "D:/documents/python codes/Thesis/github-code/ANeurIPS2024_SPV-MIA-main/ANeurIPS2024_SPV-MIA-main/deepseek-ai/deepseek-llm-7b-base"
+
+
+# Dataset name will just be the CSV file name without extension
+# Short name for folder naming
+dataset_name: "ag_news"
+
+# Actual full path to the dataset file
+dataset_path: D:\documents\python codes\Thesis\github-code\ANeurIPS2024_SPV-MIA-main\ANeurIPS2024_SPV-MIA-main\ag_news\train-00000-of-00001.parquet
+
+
+dataset_config_name: "default"
+
+
+cache_path: ./cache
+use_dataset_cache: true
+packing: true
+calibration: true
+member_indices_path: "D:/documents/python codes/Thesis/github-code/enron_member_indices.json"
+
+
+add_eos_token: false
+add_bos_token: false
+pad_token_id: null
+
+attack_kind: stat
+eval_batch_size: 1
+maximum_samples: 200
+block_size: 128
+
+validation_split_percentage: 0.1
+preprocessing_num_workers: 1
+
+# Mask-filling model
+mask_filling_model_name: t5-base
+buffer_size: 1
+mask_top_p: 1.0
+span_length: 2
+pct: 0.3
+ceil_pct: false
+
+int8: false
+half: false
+perturbation_number: 1
+sample_number: 1
+
+
+train_sta_idx: 0
+train_end_idx: 4000
+eval_sta_idx: 0
+eval_end_idx: 1000
+
+
+# This path is used for saving/loading attack data
+attack_data_path: attack
+load_attack_data: false
